@@ -1,8 +1,7 @@
 export class SoundPlayer{
     constructor(){
         const obj = {
-            click:'audio/click.mp3'
-            
+            click:'audio/click.mp3'        
         }
     }
     play(param){
