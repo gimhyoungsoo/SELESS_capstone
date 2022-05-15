@@ -10,7 +10,6 @@ export class Ladder {
             return htmlStr;
         };
     }
-
     show() {
         document.querySelector('body').insertAdjacentHTML(
             'beforeend',
@@ -23,6 +22,5 @@ export class Ladder {
                     </ul>
             </div>`
         );
-    }; 
-      
+    };
 }

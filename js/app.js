@@ -1,7 +1,7 @@
-import { SoundPlayer } from './SoundPlayer.js';
-import { Random } from '../js/games/random.js';
-import { Ladder } from '../js/games/ladder.js';
-import { Roulette } from '../js/games/roulette.js';
+import {SoundPlayer} from './sound.js';
+import {Random} from '../js/games/random.js';
+import {Ladder} from '../js/games/ladder.js';
+import {Roulette} from '../js/games/roulette.js';
 
 class App {
     constructor() {
@@ -16,19 +16,26 @@ class App {
         const roulette = document.getElementsByTagName('button')[2];
 
         random.addEventListener('click', () => {
-            this.soundPlayer.play('click')
-            this.game_random.show();
-            menu.style.display = 'none';
+            this.soundPlayer.playSoundOf('click');
+            this.soundPlayer.soundResources['click'].addEventListener('ended',()=>{
+                location.href = './random.html'
+            })
+            // if(this.soundPlayer.soundResources['click'].ended){
+            //     location.href = './random.html'
+            // }
+            
+            // this.game_random.show();
+            // menu.style.display = 'none';
         });
 
         ladder.addEventListener('click', () => {
-            this.soundPlayer.play('click')
+
             this.game_ladder.show();
             menu.style.display = 'none';
         });
 
         roulette.addEventListener('click', () => {
-            this.soundPlayer.play('click')
+
             this.game_roulette.show();
             menu.style.display = 'none';
         });
