@@ -1,6 +1,7 @@
-import { contents as home } from "../component/home.js";
-import { contents as ladder } from "../component/ladder.js";
+import { contents as home } from "./pages/home.js";
+import { contents as ladder } from "./pages/ladder.js";
+import { contents as random } from "./pages/random.js"
 import { header } from "./header.js";
-import { footer } from "./footer.js";
+import { Footer } from "./footer.js";
 
-export { home, ladder, header, footer};
+export { header, Footer, random, ladder }; 
