@@ -1,0 +1,1 @@
+export const contents = '<h1>랜덤 게임 화면</h1>'

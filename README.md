@@ -1,8 +1,10 @@
-# SELESS_capstone
-JS를 통해 동적으로 게임 별 html 요소를 추가 했습니다.
+# simpleSPA
+404 page 필요(?)
+클릭 시 사운드 재생 적용 중 문제 발생
 
-개선점:
-    SPA의 라우팅 방식으로 개발하면 반복해서 사용되는 header나 footer 같은 컴포넌트는 재 랜더링 하지 않아 성능을 향상 가능하다.
-    클릭 시 재생된 효과음이 끝나는 것을 기다리지 않고도 동시에 다음 뷰를 띄울 수 있을 것이다.
+ui 적용 필요
+index.html의 ul.navbar_list  li.navbar_item header footer
+//완료게임이름을 눌러서 게임 화면으로 넘어갈 시 ul.navbar_list가 사라지고(visibility hidden), footer가 window 아래에 생성 되야 함
+//완료 인 게임 화면에서 돌아가기 버튼을 누르면 footer가 사라지고, ul.navbar_list가 나타나야함
 
-window.history와 location API를 이용한 vanila JS로 router를 구현한 SPA 만들기 착수
+※추신 게임화면에서 새로고침시 그 화면으로 재 랜더링하기
