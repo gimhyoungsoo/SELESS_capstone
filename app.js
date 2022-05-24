@@ -11,15 +11,16 @@ class App {
         const navbar_list = document.querySelector('.navbar_list')
         const randomBtn = document.querySelector('.game1')
         const ladderBtn = document.querySelector('.game2')
+        const rspBtn = document.querySelector('.game4')
         const contentWrap = document.querySelector('#contentWrap');
 
-        
         const soundPlayer = new SoundPlayer() // 객체 생성
         new module.Footer(); 
         const routes = {
             '/': module.home,
             '/randomgame': module.random,
-            '/laddergame': module.ladder
+            '/laddergame': module.ladder,
+            '/rspgame' : module.rsp
         };
   
         headerTag.innerHTML = module.header; // 초기화
@@ -27,7 +28,6 @@ class App {
         window.history.replaceState({
             data: '/'
         }, '주소창 초기화,', '/')
-
 
         //함수 생성 ----------------------------------------------------------------------
         function onNavigate(pathname) { //경로 이동
@@ -49,7 +49,7 @@ class App {
                 headerTag.style.visibility = 'hidden'
                 navbar_list.style.visibility = 'hidden'
                 footerTag.style.visibility = 'visible'
-                contentWrap.innerHTML = routes[pathname]
+                // contentWrap.innerHTML = routes[pathname]
             }
         }
 
@@ -62,14 +62,23 @@ class App {
             soundPlayer.playSoundOf('click');
             onNavigate('/laddergame')
         })
+        rspBtn.addEventListener('click',()=>{
+            soundPlayer.playSoundOf('click');
+            onNavigate('/rspgame')
+            this.rsp = new module.Rsp()
+            this.rsp.run()
+        })
 
         document.querySelector('.backward').addEventListener('click', () => {
             console.log('뒤로가기')
             onNavigate('/')
         })
         document.querySelector('.retry').addEventListener('click', () => {
-            console.log('다시하기')
             //ex) ladder.play()
+            //만약 history.state가 rsp이면
+            // this.rsp = new module.Rsp() // 객체는 새로 생기는데 HTML 요소가 그대로여서 그런가? 아닌가? 흠
+            this.rsp.run()
+            console.log('다시하기')
         })
     }
 }
