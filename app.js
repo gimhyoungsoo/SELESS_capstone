@@ -15,7 +15,7 @@ class App {
         const contentWrap = document.querySelector('#contentWrap');
 
         const soundPlayer = new SoundPlayer() // 객체 생성
-        new module.Footer(); 
+        new module.Footer();
         const routes = {
             '/': module.home,
             '/randomgame': module.random,
@@ -65,21 +65,15 @@ class App {
         rspBtn.addEventListener('click',()=>{
             soundPlayer.playSoundOf('click');
             onNavigate('/rspgame')
-            this.rsp = new module.Rsp()
-            this.rsp.run()
+            this.rspObj = new module.Rsp()           
+            this.rspObj.run()
         })
 
         document.querySelector('.backward').addEventListener('click', () => {
             console.log('뒤로가기')
             onNavigate('/')
         })
-        document.querySelector('.retry').addEventListener('click', () => {
-            //ex) ladder.play()
-            //만약 history.state가 rsp이면
-            // this.rsp = new module.Rsp() // 객체는 새로 생기는데 HTML 요소가 그대로여서 그런가? 아닌가? 흠
-            this.rsp.run()
-            console.log('다시하기')
-        })
+        
     }
 }
 window.onload = () => {
