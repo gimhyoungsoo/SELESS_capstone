@@ -8,9 +8,9 @@ export class Rsp {
         document.querySelector('#contentWrap').insertAdjacentHTML(
             'beforeend',
             `<div class="RSP_container">
-                <button id="RSP_scissors"><img class="RSP_img" src="../resource/image/RSP/scissors.png" alt="scissors"></button>
-                <button id="RSP_rock"><img class="RSP_img" src="../resource/image/RSP/rock.png" alt="rock"></button>
-                <button id="RSP_paper"><img class="RSP_img" src="../resource/image/RSP/paper.png" alt="paper"></button>
+                <button id="RSP_scissors"><img class="RSP_img" src="../resource/image/rsp/scissors.png" alt="scissors"></button>
+                <button id="RSP_rock"><img class="RSP_img" src="../resource/image/rsp/rock.png" alt="rock"></button>
+                <button id="RSP_paper"><img class="RSP_img" src="../resource/image/rsp/paper.png" alt="paper"></button>
             </div>`
         );     
     }

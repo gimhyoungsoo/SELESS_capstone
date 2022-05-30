@@ -8,3 +8,7 @@ index.html의 ul.navbar_list  li.navbar_item header footer
 //완료 인 게임 화면에서 돌아가기 버튼을 누르면 footer가 사라지고, ul.navbar_list가 나타나야함
 
 ※추신 게임화면에서 새로고침시 그 화면으로 재 랜더링하기
+
+## roulette을 비롯한 게임들 Jquery 적용 가능한가?
+## 현재 적용된 게임 가위바위보, 랜덤숫자
+## numberDraw에서 start 버튼이 눌리지 않음

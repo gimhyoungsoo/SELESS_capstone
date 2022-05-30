@@ -1,8 +1,5 @@
 import * as module from './component/module.js'
-import {
-    SoundPlayer
-} from './lib/sound.js'
-
+import { SoundPlayer } from './lib/sound.js'
 
 class App {
     constructor() {
@@ -11,7 +8,9 @@ class App {
         const navbar_list = document.querySelector('.navbar_list')
         const randomBtn = document.querySelector('.game1')
         const ladderBtn = document.querySelector('.game2')
+        const rouletteBtn = document.querySelector('.game3')
         const rspBtn = document.querySelector('.game4')
+        const numDrawBtn = document.querySelector('.game5')
         const contentWrap = document.querySelector('#contentWrap');
 
         const soundPlayer = new SoundPlayer() // 객체 생성
@@ -62,11 +61,32 @@ class App {
             soundPlayer.playSoundOf('click');
             onNavigate('/laddergame')
         })
+
+        rouletteBtn.addEventListener('click',()=>{
+            soundPlayer.playSoundOf('click');
+            onNavigate('/roulettegame')
+            this.rouletteObj = new module.Roulette()           
+            this.rouletteObj.run()
+        })
+
         rspBtn.addEventListener('click',()=>{
+
+            console.log('클릭')
+
             soundPlayer.playSoundOf('click');
             onNavigate('/rspgame')
             this.rspObj = new module.Rsp()           
             this.rspObj.run()
+        })
+
+        numDrawBtn.addEventListener('click',()=>{
+
+            console.log('클릭')
+
+            soundPlayer.playSoundOf('click');
+            onNavigate('/numberDraw')
+            this.numDrawObj = new module.NumberDraw()           
+            this.numDrawObj.run()
         })
 
         document.querySelector('.backward').addEventListener('click', () => {

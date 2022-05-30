@@ -1,1 +1,1 @@
-export const header =  '<div><h1>셀리스(로고)</h1></div>'
+export const header =  '<div><img id="logo" src="../resource/image/logo.svg"></div>'

@@ -1,4 +1,25 @@
-*{
+* {
     margin: 0;
     padding: 0;
-}
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #logo{
+      width: 300px;
+  }
+  
+  .RSP_container {
+    position: absolute;
+    width: 1000px;
+    height: auto;
+    top: calc(50% - 155px);
+    left: calc(50% - 500px);
+  
+  }
+  
+  .RSP_img {
+    width: 300px;
+    height: 300px;
+  }
