@@ -1,1 +1,0 @@
-export const contents = '<h1>사타리타기 게임 화면</h1>'
