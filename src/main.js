@@ -7,6 +7,10 @@ export function Main() {
         app.Number(document.querySelector('.contents_warp'));
 
     })
+    document.querySelector('.toRsp').addEventListener('click', () => {
+        app.Rsp(document.querySelector('.contents_warp'));
+
+    })
 }
 window.onload=()=>{new Main()}
     

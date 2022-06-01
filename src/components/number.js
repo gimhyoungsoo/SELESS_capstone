@@ -17,7 +17,7 @@ export default class Number {
     const div = document.createElement("div");
     div.innerHTML = `
       <div class="countBox">
-        <img class="bg" src="../../Number/3.svg">
+        <img class="bg" src="../src/resource/img/number_bg.svg">
         <h1>1~10 랜덤 뽑기</h1>
         <p class="countNumber">0</p>
         <div class="countButtonWrap">
