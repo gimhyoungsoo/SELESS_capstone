@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--  1초마다 이미지 변경하는거 day 61 ex.4-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><!-- IE 최신버전으로 렌더링 -->
+	<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+
+
+
+	<title>번호이름 추첨기</title>
+	<link rel="stylesheet" href="./style1.css" type="text/css">
+	<script type="text/javascript" src="./js/jquery-1.11.0.js"></script><!-- jQuery 사용 -->
+	
+	<script>
+	
+
+		var runtimeState=false;
+		var arr_count=0;
+		// 당첨결과
+		var lucky_seq_content_arr=new Array();//
+		var word_arr = new Array(); //띄어쓰기로 단어 구분하여 단어를 담는 배열
+		
+
+	
+		
+		function lucky()
+		{		
+				runtimeState = true; //추첨실행중
+				
+				/*
+				if($('#roulette').is(":checked")==true && $('#ladder').is(":checked")==true ||
+				$('#roulette').is(":checked")==true && $('#drawing_lots').is(":checked")==true ||
+				$('#ladder').is(":checked")==true && $('#drawing_lots').is(":checked")==true){
+					alert('하나만 제외하세요');
+					OutPut="";	
+				}
+				
+
+				*/
+
+				//만약 게임이 1개가 남으면 실행하는 의미가 없기 때문에 게임이 하나밖에 남을경우에는 팝업창을 띄워줌
+				if($('#roulette').is(":checked")==true && $('#ladder').is(":checked")==true ||
+				$('#roulette').is(":checked")==true && $('#drawing_lots').is(":checked")==true ||
+				$('#ladder').is(":checked")==true && $('#drawing_lots').is(":checked")==true){
+					alert('하나만 제외하세요');
+					OutPut="";	
+				}
+				else if($('#roulette').is(":checked")==true){ // 룰렛 제외
+					word_arr = document.getElementById("noRoulette_input").value.split(" ");
+					rand();
+				}else if($('#drawing_lots').is(":checked")==true){ //번호추첨 제외
+					word_arr = document.getElementById("noDrawing_lots_input").value.split(" ");
+					rand();
+
+				}else if($('#ladder').is(":checked")==true){ //사다리 제외
+					word_arr = document.getElementById("noladder_input").value.split(" ");
+					rand();
+				}else if($('#roulette').is(":checked")==false && $('#ladder').is(":checked")==false&&$('#drawing_lots').is(":checked")==false){
+				word_arr = document.getElementById("cookie_lucky_lunch_input").value.split(" ");
+				rand();
+				}
+				
+
+				/* --> rand()함수로 대체함
+				//alert(word_arr[2]);// word_arr배열에 값이 띄어쓰기로 들어가있는지 확인하는 코드
+				//alert(word_arr.length);
+
+				배열에 값 들어가있는지 확인하는 코드
+				for(var i=0;i<word_arr.length;i++){
+					lucky_seq_content_arr[i]=word_arr[i];
+					
+				}
+			
+				//document.write(lucky_seq_content_arr[1]); => 해당 index에 값이 들어가 있음
+				
+
+				
+				
+				var RandomNumber = Math.floor(Math.random()*word_arr.length);
+				//var RandomNumber = Math.floor(Math.random()*word_arr.length);
+				//alert(RandomNumber);
+	
+				
+				
+				OutPut =word_arr[RandomNumber];
+				//랜덤으로 숫자를 돌려 index=0,1,2 word_arr배열에 들어있는 값을 결과로 받음
+				//OutPut = 결과값
+				$("#lucky_output").text(OutPut);
+				T=setTimeout('lucky()',30); 
+				StOp();
+				*/
+			
+		}
+			
+
+		function rand(){
+			var RandomNumber = Math.floor(Math.random()*word_arr.length);
+				//var RandomNumber = Math.floor(Math.random()*word_arr.length);
+				//alert(RandomNumber);
+	
+				
+				
+				var OutPut =word_arr[RandomNumber];
+				//랜덤으로 숫자를 돌려 index=0,1,2 word_arr배열에 들어있는 값을 결과로 받음
+				//OutPut = 결과값
+				$("#lucky_output").text(OutPut);
+				T=setTimeout('lucky()',30); 
+				StOp();
+		}
+		//추첨시간 1초
+		function StOp()
+		{
+			setTimeout('StOp_do()',2000);
+		}
+
+		function StOp_do()
+		{
+			//추첨처리되는거 정지
+			clearTimeout(T);
+
+			
+			// 당첨된 인덱스값을 배열에 저장
+			lucky_seq_content_arr[arr_count] = OutPut;
+			arr_count++;
+
+			runtimeState = false; //추첨중 종료
+		}
+			
+		/*
+		function start()
+		{
+			//아래 코드를 넣어야 아이폰 사파리에서 "추첨기 출력박스"를 연속으로 클릭시 추첨하기 클릭을 누른 효과가 난다. 안넣으면 "추첨기 출력박스"를 클릭시 포커스가 들어가서 출력박스 클릭이 안된다.
+			$("#lucky_start_btn").focus();
+
+			document.getElementById("lucky_start_btn").disabled = "disabled"; //추첨하기 버튼 비활성화
+			document.getElementById("lucky_start_btn").innerText  = "추첨중...";
+		
+			lucky(); //추첨시작
+			StOp(); //추천종료
+		}
+		*/
+	
+
+		function lucky_init()
+		{
+			//배열값 초기화 (length값까지 0으로 된다.)
+			lucky_seq_content_arr = new Array();
+
+			// 당첨결과 초기화
+			arr_count = 0;
+		
+		}
+	
+			var num=1;
+		
+			function change_img(){
+				var img =document.getElementById('image') ;
+				img.src='image/img'+ num++ +'.jpg';
+				if(num==7){
+					num=1;
+				}
+				
+			}
+		setInterval(change_img,500);
+	</script>
+</head>
+<body>
+
+<table id="tableMapping">
+	<tr>
+		<td>
+				<div id="wrap">
+				<table id="table">
+				<tr>
+				 <td><img src="image/img1.jpg" id="image">	</td><td><div id="header">랜덤 게임 선택</div></td>
+				<tr>
+		  		</table>
+	
+				<div style="height:5px;"></div>
+
+				<div id="lucky">
+				<div id="lucky_output" onClick="start();"></div>
+				<div style="height:10px;"></div>
+			
+				<img src="image/turn.png"width= "50" height="50" id="lucky_kind_lunch"value="돌려" onclick="lucky()"/>
+
+				<div id="dip_p3" style="display: none;">
+				<textarea name="cookie_lucky_lunch_input" id="cookie_lucky_lunch_input" style="display: none;">룰렛 사다리타기 번호추첨</textarea>
+				<textarea name="noRoulette_input" id="noRoulette_input" style="display: none;">사다리타기 번호추첨</textarea>  <!-- 룰렛 제외 -->
+				<textarea name="noDrawing_lots_input" id="noDrawing_lots_input" style="display: none;">사다리타기 룰렛</textarea>  <!-- 번호추첨 제외 -->
+				<textarea name="noladder_input" id="noladder_input" style="display: none;">룰렛</textarea>  <!-- 사다리타기 제외 -->
+				</div>
+
+			
+            	<div>
+					<img src="image/trash.jpg" width= "50" height="45" class="reset_button" onClick="document.location.reload();"/>
+				</div>
+				</div>
+			</td>
+			<td>
+				<div id="choiceList">
+					<table id="table2" border="1">
+						<thead><img src="image/check.jpg" id="checkImg"><caption id="tableHead">제외 할 게임</caption></thead>
+						<tr><td>룰렛</td><td><input type="checkbox" id="roulette"> </td></tr>
+						<tr><td>사다리타기</td><td><input type="checkbox" id=" ladder"> </td></tr>
+						<tr><td>번호추첨</td><td><input type="checkbox" id="drawing_lots"> </td></tr>
+					</table>
+				</div>
+			</td>
+			</tr>
+		</table>
+	</div>
+
+	
+	
+</body>
+</html>
+
+</script>

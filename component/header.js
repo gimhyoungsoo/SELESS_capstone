@@ -1,1 +1,0 @@
-export const header =  '<div><img id="logo" src="../resource/image/logo.svg"></div>'

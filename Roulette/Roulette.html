@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>SeLess Roulette</title>
+	<link rel="stylesheet" type="text/css" href="rouletteStyle.css">
+	<script type="text/javascript" src="./jquery-3.2.0.min.js"></script>
+	<script type="text/javascript" src="./seless_color_.js"></script>
+	<script defer type="text/javascript" src="./seless_roulette.js"></script>
+</head>
+<body>
+    <div class="container">
+		<div class="wrap">
+			<canvas width="600" height="600" class="roulette"></canvas>
+			<img class="bg" src="./1.svg">
+			<div id="roll" class="button"></div>
+		</div>
+		<ul>
+			<li class="item empty" data-chance="0">
+				<div class="item-title" placeholder="이름" contenteditable="true"></div>
+				<div class="item-weight" data-weight="1"></div>
+				<div class="item-weight-add">+</div>
+				<div class="item-weight-sub">-</div>
+				<div class="item-delete">X</div>
+			</li>
+		</ul>
+	</div>
+	<div id="button-tooltip" style="display: none;">
+		<div><span class="command">Alt + 클릭</span><span class="number">±100</span></div>
+		<div><span class="command">Ctrl + 클릭</span><span class="number">±10</span></div>
+		<div><span class="command">클릭</span><span class="number">±1</span></div>
+	</div>
+	<div id="result" style="display: none;"></div>
+	
+</body>
+</html>
